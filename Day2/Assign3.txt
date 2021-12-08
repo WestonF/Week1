@@ -1,0 +1,1 @@
+ The -g option is described as providing information for "the operating system's native format." My experimentation so far has failed to produce any visible debug information, although it did compile and run the program. I am hoping we will cover this in class, as it would greatly accelerate my exploration on the topic.

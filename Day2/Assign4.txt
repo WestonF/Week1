@@ -1,0 +1,2 @@
+I suspect this question contains a typo. As written, I can't understand what I even want the compiler to do.
+If, on the other hand, it was meant to read "suppress [linking,] generating only object code and not final executable," then the option is -c.
