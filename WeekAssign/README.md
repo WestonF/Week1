@@ -1,4 +1,5 @@
 There are a number of elements in this demo program that do not perform as they would in the final version. The most substantial of these are the following:
+
 Login Credentials:
 In the demo program, login information is pre-defined in the source code with no options to modify or secure this data. A production version of this software would include proper password encryption as well as options for changing user ids and passwords.
 
