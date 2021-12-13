@@ -65,12 +65,12 @@ class account
 
 		void Display()
 		{
-			std::cout << custname << ", " << numb << ", " << opendate << std::endl;
+			std::cout << "Customer Name: " << custname << ", Account Number:  " << numb << ", Date Opened: " << opendate << std::endl;
 		}
 		
 		void DisplayMore()
 		{
-			std::cout << custname << ", "<< ssn4 << ", " << numb << ", " << opendate << std::endl;
+			std::cout << "Customer Name: " << custname << ", SSN: "<< ssn4 << ", Account Number: " << numb << ", Date Opened: " << opendate << std::endl;
 		}
 };
 
@@ -248,7 +248,6 @@ int main()
 	{
 	
 		std::cout << "home >";
-
 		std::getline(std::cin, command);	//there's a but that skips the "wait for input" part of this on loop one. not sure how to fix yet
 
 		if (command == "show accounts")
@@ -302,6 +301,7 @@ void LogIn()
 		}
 
 	}
+	std::getline(std::cin, user); //to catch and hopefully clear the dangling '/n' char
 }
 
 bool CheckCred(std::string i_user, std::string i_pass)
@@ -340,6 +340,7 @@ void DisplayAccount(accountbank* db)
 	{
 	acc->DisplayMore();
 	}
+	std::getline(std::cin, input); //to catch and clear the dangling newline in the input stream
 }
 
 
@@ -360,7 +361,7 @@ void SearchName(accountbank* db)
 			std::cout << romnum[i] << ". " << list.at(i)->custname << std::endl;
 			index = i;
 		}
-		std::cout << romnum[index] << ". Home" << std::endl << "Select number >" << std::endl;
+		std::cout << romnum[index + 1] << ". Home" << std::endl << "Select number >" << std::endl;
 		std::cin >> input;
 		if(input == "Home")
 		{
@@ -393,6 +394,7 @@ void SearchName(accountbank* db)
 			}
 		}
 	}
+	std::getline(std::cin, input);	//again, to catch the dangling newline
 }
 
 void NewAccount(accountbank* db)
@@ -456,6 +458,7 @@ void NewAccount(accountbank* db)
 	//CHECK IF NAME OR SSN EXIST
 	db->NewAccount(n_name, n_ssn);
 
+	std::getline(std::cin, n_name);	//again, to catch the dangling newline
 }
 
 void CloseAccount(accountbank* db)
@@ -475,6 +478,7 @@ void CloseAccount(accountbank* db)
 		{
 			db->CloseAccount(input);
 			std::cout << "Account closed" << std::endl;
+			std::getline(std::cin, input);	//again, to catch the dangling newline
 			return;
 		}
 		else
@@ -487,6 +491,7 @@ void CloseAccount(accountbank* db)
 		std::cout << "Account not found" << std::endl;
 	}
 
+	std::getline(std::cin, input);	//again, to catch the dangling newline
 }
 
 //on second thought, I don't think I actually need this function for this assignment
